@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<ion-card>
+      <ion-card-content>
+        <div class="logo">
+          <img src="assets/images/sport.jpg" class="logoImg" alt="">
+        </div>
+      </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-content>
+    <button IonButton expand="full" [routerLink]="['creerActivite']" color="primary" size="large" fill="solid">démarrer une nouvelle activité +</button >
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Historique des Activités
+  </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngFor="let item of listeActiviteUti">
+          <ion-item-sliding>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-2>
+                  <img src="assets/images/icon-list.png" class="iconList" alt="">
+                </ion-col>
+                <ion-col col-10>
+                  <h3>Activité : {{item.libelleActivite}}</h3>
+                  <label ion-label>{{item.dateActivite | date:'dd/MM/yyyy'}}</label>
+                  <p>{{item.heureDebut}}-{{item.heureFin}}</p>
+                 </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <ion-item-options>
+            <ion-button color="light" (click)="getDetailActivite(item)">
+              <ion-icon name="apps-outline"></ion-icon>
+            </ion-button>
+            <ion-button color="danger">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-card-content>
+</ion-card>

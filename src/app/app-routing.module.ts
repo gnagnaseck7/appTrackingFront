@@ -8,9 +8,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home-routing.module').then( m => m.HomePageRoutingModule)
+  },
+  {
+    path: 'page-test-parent',
+    loadChildren: () => import('./page-test-parent/page-test-parent.module').then( m => m.PageTestParentPageModule)
+  }
 ];
 
 @NgModule({

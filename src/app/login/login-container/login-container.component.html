@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="myBg">
+  <app-login [retourConnexion]="retourConnexion" (getConnexionEmmeter)="onCredentialReceiveHandle($event)"></app-login>
+</ion-content>

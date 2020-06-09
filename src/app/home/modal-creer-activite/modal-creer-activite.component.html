@@ -1,0 +1,44 @@
+<div class="logo">
+  <img src="assets/images/logo.png" class="logoImg" alt="">
+</div>
+<form (ngSubmit)="newActiviteCreated()" [formGroup]="activiteForm" *ngIf="newActiviteForm">
+  <ion-card>
+    <ion-card-content>
+      <button IonButton expand="full" [routerLink]="['/home']" color="primary" size="large" fill="solid"><< retour accueil</button>
+    </ion-card-content>
+  </ion-card>
+<ion-card>
+  <ion-card-header>
+    Activité
+  </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <label IonLabel>Type d'activité</label>
+            <ion-select formControlName="idActivite"  okText="Okay" cancelText="Dismiss">
+              <ion-select-option *ngFor="let item of listeActiviteRecu" value="{{item.idActivite}}">{{item.libelleActivite}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <button ion-button type="submit" [disabled]="activiteForm.invalid" shape="round" expand="block" fill="outline">damarrer</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+</ion-card>
+</form>
+
+<ion-card *ngIf="newActiviteEncours">
+  <ion-card-header>
+    Activité en cours
+  </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar value="0.25" buffer="0.5"></ion-progress-bar><br><br>
+        <ion-progress-bar type="indeterminate"></ion-progress-bar><br><br>
+        <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar><br><br>
+        <button ion-button  shape="round" color="danger" expand="block" (click)="terminerActivite()" fill="outline">Terminer l'activité</button>
+      </ion-card-content>
+</ion-card>

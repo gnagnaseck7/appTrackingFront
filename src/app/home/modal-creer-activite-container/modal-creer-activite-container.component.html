@@ -1,0 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Demarer une nouvelle Activité</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="myBg">
+    <app-modal-creer-activite (TerminerActiviteEmmeter)="TerminerActiviteEmmeter($event)" (creerActiviteEmmeter)="creerActiviteEmmeterHandle($event)" [listeActivite]="listeActivite | async"></app-modal-creer-activite>
+</ion-content>

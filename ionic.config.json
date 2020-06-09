@@ -1,5 +1,7 @@
 {
   "name": "appTrackingFront",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

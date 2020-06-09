@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Points GPS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p>{{currentActivite.libelleActivite}} de 
+        {{currentActivite.heureDebut}} à {{currentActivite.heureFin}}</p>
+      <button ion-button shape="round" (click)="dismiss()" color="danger" expand="block"  fill="outline">fermer</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="height: 100%">
+      <div style="height: 100%;width: 100%" id="map_canvas"></div>
+  </ion-card>
+</ion-content>
